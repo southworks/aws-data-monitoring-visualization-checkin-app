@@ -1,0 +1,90 @@
+{
+  "AwsAccountId": "xxxxxxxxxxxx",
+  "DataSetId": "SentimentDataSet",
+  "Name": "Sentiment DataSet",
+  "PhysicalTableMap": {
+    "SentimentDataSet-Table": {
+      "CustomSql": {
+        "DataSourceArn": "arn:aws:quicksight:us-east-1:xxxxxxxxxxxx:datasource/SamarkandDataSource",
+        "Name": "Sentiment Table",
+        "SqlQuery": "SELECT userid, CASE WHEN lexresult.payload.intentname = 'MIXED' THEN 'NEUTRAL' ELSE lexresult.payload.intentname END AS analysisResult, CONCAT(admins.firstname,' ', admins.lastname) as groupName, recognizedby, inputtext, datetime, audioUrl, t1.location.latitude, t1.location.longitude, t1.location.country, t2.city, CONCAT(t2.firstname,' ', t2.lastname) as fullname FROM \"<resourcesPrefix>-athenaCatalog\".\"<resourcesPrefix>-database\".\"sentiments\" as t1 JOIN \"<resourcesPrefix>-athenaCatalog\".\"<resourcesPrefix>-database\".\"users\" as t2 on t1.userid=t2.id JOIN \"<resourcesPrefix>-athenaCatalog\".\"<resourcesPrefix>-database\".\"users\" as admins on t2.administratorId=admins.id",
+        "Columns": [
+          {
+            "Name": "userid",
+            "Type": "STRING"
+          },
+          {
+            "Name": "analysisResult",
+            "Type": "STRING"
+          },
+          {
+            "Name": "groupName",
+            "Type": "STRING"
+          },
+          {
+            "Name": "recognizedby",
+            "Type": "STRING"
+          },
+          {
+            "Name": "inputtext",
+            "Type": "STRING"
+          },
+          {
+            "Name": "datetime",
+            "Type": "DATETIME"
+          },
+          {
+            "Name": "audioUrl",
+            "Type": "STRING"
+          },
+          {
+            "Name": "latitude",
+            "Type": "DECIMAL"
+          },
+          {
+            "Name": "longitude",
+            "Type": "DECIMAL"
+          },
+          {
+            "Name": "country",
+            "Type": "STRING"
+          },
+          {
+            "Name": "city",
+            "Type": "STRING"
+          },
+          {
+            "Name": "fullname",
+            "Type": "STRING"
+          }
+        ]
+      }
+    }
+  },
+  "LogicalTableMap": {
+    "SentimentDataSet-Logical": {
+      "Alias": "Sentiment Table",
+      "Source": {
+        "PhysicalTableId": "SentimentDataSet-Table"
+      }
+    }
+  },
+  "ImportMode": "DIRECT_QUERY",
+  "Permissions": [
+    {
+      "Principal": "arn:aws:quicksight:us-east-1:xxxxxxxxxxxx:user/default/<USER_NAME>",
+      "Actions": [
+        "quicksight:UpdateDataSetPermissions",
+        "quicksight:DescribeDataSet",
+        "quicksight:DescribeDataSetPermissions",
+        "quicksight:PassDataSet",
+        "quicksight:DescribeIngestion",
+        "quicksight:ListIngestions",
+        "quicksight:UpdateDataSet",
+        "quicksight:DeleteDataSet",
+        "quicksight:CreateIngestion",
+        "quicksight:CancelIngestion"
+      ]
+    }
+  ]
+}

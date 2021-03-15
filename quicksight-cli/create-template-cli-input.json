@@ -1,0 +1,20 @@
+{
+    "AwsAccountId": "xxxxxxxxxxxx",
+    "TemplateId": "DemoAnalysisTemplate",
+    "Name": "Demo Analysis Template",
+    "SourceEntity": {
+        "SourceAnalysis": {
+            "Arn": "arn:aws:quicksight:us-east-1:xxxxxxxxxxxx:analysis/<ANALYSIS_ID>",
+            "DataSetReferences": [
+                {
+                    "DataSetPlaceholder": "DS1",
+                    "DataSetArn": "arn:aws:quicksight:us-east-1:xxxxxxxxxxxx:dataset/DemoDataSet1"
+                }
+            ]
+        }
+    },
+    "VersionDescription": "1"
+}
+
+
+

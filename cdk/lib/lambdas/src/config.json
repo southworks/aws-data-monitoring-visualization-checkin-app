@@ -1,0 +1,24 @@
+{
+  "aws": {
+    "region": "<region>",
+    "bucketName": "<resourcesPrefix>-bucket",
+    "dynamoDB": {
+      "feelingTable": {
+        "name": "<resourcesPrefix>-feeling"
+      },
+      "userTable": {
+        "name": "<resourcesPrefix>-user"
+      }
+    },
+    "KDS": {
+      "sentimentResult": "<resourcesPrefix>-sentimentResults"
+    },
+    "SES": {
+      "sesNotificationsTemplateName": "<resourcesPrefix>-sesNotificationTemplate"
+    },
+    "SNS": {
+      "topicArn": "arn:aws:sns:<region>:<accountId>:<resourcesPrefix>-notificationsTopic",
+      "emailSubscription": "<email>"
+    }
+  }
+}

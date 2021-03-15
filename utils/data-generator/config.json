@@ -1,0 +1,7 @@
+{
+  "dailyRecordsPerUser": 5,
+  "daysToGenerate": 30,
+  "sentimentResultStreamName": "sentimentResults",
+  "totalAdmins": 5,
+  "usersPerAdmin": 10
+}

@@ -1,0 +1,58 @@
+{
+  "AwsAccountId": "xxxxxxxxxxxx",
+  "DataSetId": "DemographicDataSet",
+  "Name": "Demographic DataSet",
+  "PhysicalTableMap": {
+    "SentimentDataSet-Table": {
+      "CustomSql": {
+        "DataSourceArn": "arn:aws:quicksight:us-east-1:xxxxxxxxxxxx:datasource/SamarkandDataSource",
+        "Name": "Demographic DataSet",
+        "SqlQuery": "SELECT location.country, location.latitude, location.longitude, COUNT(*) * 100  / (SELECT COUNT (*) as total FROM \"<resourcesPrefix>-athenaCatalog\".\"<resourcesPrefix>-database\".\"sentiments\" AS t3 JOIN \"<resourcesPrefix>-athenaCatalog\".\"<resourcesPrefix>-database\".\"users\" AS t4 ON t3.userid = t4.id WHERE t1.location.country = t3.location.country AND t1.location.latitude = t3.location.latitude AND t1.location.longitude = t3.location.longitude ) as negativeAverage FROM \"<resourcesPrefix>-athenaCatalog\".\"<resourcesPrefix>-database\".\"sentiments\" AS t1 JOIN \"<resourcesPrefix>-athenaCatalog\".\"<resourcesPrefix>-database\".\"users\" AS t2 ON t1.userid = t2.id WHERE lexresult.payload.intentname = 'NEGATIVE' GROUP BY location",
+        "Columns": [
+          {
+            "Name": "country",
+            "Type": "STRING"
+          },
+          {
+            "Name": "latitude",
+            "Type": "DECIMAL"
+          },
+          {
+            "Name": "longitude",
+            "Type": "DECIMAL"
+          },
+          {
+            "Name": "total",
+            "Type": "INTEGER"
+          }
+        ]
+      }
+    }
+  },
+  "LogicalTableMap": {
+    "DemographicDataSet-Logical": {
+      "Alias": "Demographic Table",
+      "Source": {
+        "PhysicalTableId": "DemographicDataSet-Table"
+      }
+    }
+  },
+  "ImportMode": "DIRECT_QUERY",
+  "Permissions": [
+    {
+      "Principal": "arn:aws:quicksight:us-east-1:xxxxxxxxxxxx:user/default/<USER_NAME>",
+      "Actions": [
+        "quicksight:UpdateDataSetPermissions",
+        "quicksight:DescribeDataSet",
+        "quicksight:DescribeDataSetPermissions",
+        "quicksight:PassDataSet",
+        "quicksight:DescribeIngestion",
+        "quicksight:ListIngestions",
+        "quicksight:UpdateDataSet",
+        "quicksight:DeleteDataSet",
+        "quicksight:CreateIngestion",
+        "quicksight:CancelIngestion"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+    "AwsAccountId": "xxxxxxxxxxxx",
+    "DataSetId": "UserDataSet",
+    "Name": "User DataSet",
+    "PhysicalTableMap": {
+        "UserDataSet-Table": {
+            "CustomSql": {
+                "DataSourceArn": "arn:aws:quicksight:us-east-1:xxxxxxxxxxxx:datasource/SamarkandDataSource",
+                "Name": "User Table",
+                "SqlQuery": "SELECT address, administratorId, age, email, firstName, id, lastName, password FROM \"<resourcesPrefix>-athenaCatalog\".\"<resourcesPrefix>-database\".\"users\" ",
+                "Columns": [
+                    {
+                        "Name": "address",
+                        "Type": "STRING"
+                    },
+                    {
+                        "Name": "administratorId",
+                        "Type": "STRING"
+                    },
+                    {
+                        "Name": "age",
+                        "Type": "INTEGER"
+                    },
+                    {
+                        "Name": "email",
+                        "Type": "STRING"
+                    },
+                    {
+                        "Name": "firstName",
+                        "Type": "STRING"
+                    },
+                    {
+                        "Name": "id",
+                        "Type": "STRING"
+                    },
+                    {
+                        "Name": "lastName",
+                        "Type": "STRING"
+                    },
+                    {
+                        "Name": "password",
+                        "Type": "STRING"
+                    }
+                ]
+            }
+        }
+    },
+    "LogicalTableMap": {
+        "UserDataSet-Logical": {
+            "Alias": "User Table",
+            "Source": {
+                "PhysicalTableId": "UserDataSet-Table"
+            }
+        }
+    },
+    "ImportMode": "DIRECT_QUERY",
+    "Permissions": [
+        {
+            "Principal": "arn:aws:quicksight:us-east-1:xxxxxxxxxxxx:user/default/<USER_NAME>",
+            "Actions": [
+                "quicksight:UpdateDataSetPermissions",
+                "quicksight:DescribeDataSet",
+                "quicksight:DescribeDataSetPermissions",
+                "quicksight:PassDataSet",
+                "quicksight:DescribeIngestion",
+                "quicksight:ListIngestions",
+                "quicksight:UpdateDataSet",
+                "quicksight:DeleteDataSet",
+                "quicksight:CreateIngestion",
+                "quicksight:CancelIngestion"
+            ]
+        }
+    ]
+}

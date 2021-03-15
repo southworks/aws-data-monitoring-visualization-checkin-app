@@ -1,0 +1,16 @@
+{
+  "name": "utils",
+  "version": "1.0.0",
+  "description": "script to generate synthetic entries.",
+  "main": "generateData.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Samarkand Team",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.845.0",
+    "casual": "^1.6.2"
+  }
+}

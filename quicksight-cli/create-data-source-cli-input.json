@@ -1,0 +1,24 @@
+{
+    "AwsAccountId": "xxxxxxxxxxxx",
+    "DataSourceId": "SamarkandDataSource",
+    "Name": "Samarkand Data Source",
+    "Type": "ATHENA",
+    "DataSourceParameters": {
+        "AthenaParameters": {
+            "WorkGroup": "primary"
+        }
+    },
+    "Permissions": [
+        {
+            "Principal": "arn:aws:quicksight:us-east-1:xxxxxxxxxxxx:user/default/<USER_NAME>",
+            "Actions": [
+                "quicksight:UpdateDataSourcePermissions",
+                "quicksight:DescribeDataSource",
+                "quicksight:DescribeDataSourcePermissions",
+                "quicksight:PassDataSource",
+                "quicksight:UpdateDataSource",
+                "quicksight:DeleteDataSource"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "Template": {
+        "TemplateName": "Samarkand-SES-Template",
+        "SubjectPart": "Negative feelings alert!",
+        "HtmlPart": "<h1>Negative feelings alert!</h1><h2>Hello {{name}},</h2><p>We detect that in the past 1 hour you sent {{negativeCount}} negative messages more than positive messages.</p><h3>Messages:</h3><p>{{inputText}}</p>"
+    }
+}
