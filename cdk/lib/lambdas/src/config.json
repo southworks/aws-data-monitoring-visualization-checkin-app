@@ -2,6 +2,7 @@
   "aws": {
     "region": "<region>",
     "bucketName": "<resourcesPrefix>-bucket",
+    "resourcesPrefix": "<resourcesPrefix>",
     "dynamoDB": {
       "feelingTable": {
         "name": "<resourcesPrefix>-feeling"

@@ -20,8 +20,8 @@ exports.handler = (event) => {
 
   const dataToSend = {
     Data: JSON.stringify(data),
-    PartitionKey: config.aws.Kinesis.sagemakerStream,
-    StreamName: config.aws.Kinesis.sagemakerStream,
+    PartitionKey: `${config.aws.resourcesPrefix}-lexDataStream`,
+    StreamName: `${config.aws.resourcesPrefix}-lexDataStream`,
   };
 
   console.log(dataToSend);
