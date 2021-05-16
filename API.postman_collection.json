@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "48c30263-e96f-4c25-8825-942a49d30b24",
+		"name": "samarkand Part 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "listUserInferences",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"Data\": [\n    {\n      \"inputText\": \"I feel good my friend, so good\",\n      \"userId\": \"06142172-f191-4fd2-9b4b-e82705a6e0d4\",\n      \"audioUrl\": \"http://\",\n      \"location\":{\n          \"country\":\"Argentina\",\n          \"latitude\":-38.416097,\n          \"longitude\":-63.616672\n      }\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/prod/feelings/text",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"prod",
+						"feelings",
+						"text"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "feelingsInference",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/prod/feelings/user/{{userId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"prod",
+						"feelings",
+						"user",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
