@@ -1,5 +1,7 @@
 # Building a 'Mental Health Monitoring' App with AWS AI Services - Part II
 
+You can find the complete [article](https://medium.com/southworks/building-a-mental-health-monitoring-app-with-aws-ai-services-part-ii-97134d553242) describing the scenario tackled with this reference implementation.
+
 > NOTE: You can find at this [repository](https://github.com/southworks/aws-data-ai-checkin-app) the initial reference implementation for this app and within this [article](https://medium.com/southworks/building-a-mental-health-monitoring-app-with-aws-ai-services-part-i-fa7566c6a3a5) how everything started.
 
 ## Overview
